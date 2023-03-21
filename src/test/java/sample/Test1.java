@@ -1,14 +1,23 @@
 package sample;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class Test1 {
 
-	public static void main(String[] args) {
+	@Test
+	public void method()
+	{
 		
-		int x=10;
-		int y=20;
-		int z=x+y;
-		System.out.println("sum of two num is "+z);
-
+		WebDriverManager.chromedriver().setup();
+		RemoteWebDriver driver=new ChromeDriver();
+		driver.get("https://www.facebook.com");
+		Assert.assertTrue(true);
+		driver.close();
 	}
 
 }
